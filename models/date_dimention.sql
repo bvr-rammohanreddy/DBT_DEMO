@@ -14,7 +14,8 @@ case when month(to_timestamp(STARTED_AT)) in (12,1,2) then 'Winter'
      {{get_season('STARTED_AT')}} as get_season,
      {{day_type('STARTED_AT')}} as day_type_fun,
 
+-- from {{ source('demo', 'bike') }}
+from {{ ref('stg_bike') }}
 
-from {{ source('demo', 'bike') }}
 ) 
 select * from cte 
