@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 with daily_weather as(
 
 select to_Date(TIME) as daily_weather,
